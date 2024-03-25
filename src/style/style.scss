@@ -1,0 +1,133 @@
+@import url("bootstrap/dist/css/bootstrap.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Anton|Gill+Sans|Noticia+Text|Open+Sans+Condensed|Shadows+Into+Light|Shrikhand");
+
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/scrollbar";
+
+html,
+body,
+#root,
+.App {
+  @include fullDimensions;
+  max-width: 100vw;
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: $lighter;
+  background-color: var(--primary);
+  color: var(--secondary);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.pageContainer {
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+#logo {
+  font-size: 64px;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--contrast);
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+}
+
+#logo #dot {
+  color: var(--secondary);
+  animation: dot-logo-spin infinite 20s linear;
+}
+
+h1 {
+  color: var(--accent);
+  font-weight: $bold;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary);
+  font-weight: $medium;
+}
+
+a,
+.link {
+  @include link;
+}
+
+.centerer {
+  @include fullDimensions;
+  @include centeringFlex;
+}
+
+.pageContainer > .row {
+  width: 100%;
+  justify-content: center;
+  margin: 0;
+}
+
+.sectionContainer {
+  padding: 0.5em 1em;
+  max-width: 1460px;
+  border-bottom: solid 1px var(--contrast);
+}
+
+.footerContainer {
+  font-size: 14px;
+  padding: 1rem;
+  padding: 0.2em 0.5em;
+}
+
+.dropdown {
+  text-align: end;
+  .dropdown-toggle::after {
+    display: none;
+  }
+}
+
+img {
+  object-fit: cover;
+}
+
+//buttons
+.btnGrey {
+  @include btn("grey");
+}
+
+.btnGreen {
+  @include btn("green");
+}
+
+.textCut {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes dot-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

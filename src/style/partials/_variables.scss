@@ -1,0 +1,33 @@
+$dark: #1c2627;
+$darkgreen: #04b597;
+$mintgreen: #8cf6ca;
+$light: #f0fffd;
+
+$title-font: "Montserrat", sans-serif;
+$primary-font: "Montserrat", sans-serif;
+$secondary-font: "Montserrat", sans-serif;
+$thin: 100;
+$lighter: 300;
+$regular: 400;
+$medium: 600;
+$bold: 900;
+$lsp: 0.01rem;
+$lsp-2x: 0.02rem;
+$lsp-big: 0.05rem;
+$lsp-extra: 0.15rem;
+
+// Stili per il tema chiaro
+.theme-light {
+  --primary: #f0fffd;
+  --secondary: #1c2627;
+  --accent: #079e85;
+  --contrast: #8cf6ca;
+}
+
+// Stili per il tema scuro
+.theme-dark {
+  --primary: #1c2627;
+  --secondary: #f0fffd;
+  --accent: #8cf6ca;
+  --contrast: #04b597;
+}

@@ -1,0 +1,59 @@
+@mixin link {
+  text-decoration: none;
+  color: var(--accent);
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+@mixin btn($variant) {
+  padding: 3px 10px;
+  margin: 5px;
+  font-weight: 600;
+  border: 1px solid;
+  transform: 0.5s;
+  @if ($variant == "green") {
+    color: var(--primary);
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+  @if ($variant == "grey") {
+    color: var(--primary);
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+  }
+  &:hover {
+    cursor: pointer;
+    @if ($variant == "green") {
+      color: var(--accent);
+      background-color: transparent;
+      border-color: var(--accent);
+    }
+    @if ($variant == "grey") {
+      color: var(--secondary);
+      background-color: transparent;
+      border-color: var(--secondary);
+    }
+  }
+}
+
+@mixin centeringFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin fullDimensions {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin transition($transition) {
+  -moz-transition: $transition ease-in-out;
+  -o-transition: $transition ease-in-out;
+  -webkit-transition: $transition ease-in-out;
+  -ms-transition: $transition ease-in-out;
+  transition: $transition ease-in-out;
+}
