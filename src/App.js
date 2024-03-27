@@ -1,9 +1,15 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleDarkmode, setDarkmode } from "./redux/actions/theme";
+import { useSelector } from "react-redux";
+import { setDarkmode } from "./redux/actions/theme";
+import MyNav from "./components/elements/MyNav";
+import Home from "./components/pages/Home";
+import Projects from "./components/pages/Projects";
+import Curriculum from "./components/pages/Curriculum";
+import Contacts from "./components/pages/Contacts";
+import PageNotFound from "./components/pages/PageNotFound";
 
 function App() {
-  const dispatch = useDispatch();
   const darkmode = useSelector((state) => state.theme.darkmode);
 
   useEffect(() => {
@@ -18,20 +24,18 @@ function App() {
     }
   }, []);
 
-  const handleToggleTheme = () => {
-    dispatch(toggleDarkmode());
-  };
-
   return (
-    <div className={`App ${!darkmode ? "theme-light" : "theme-dark"}`}>
-      <div className="pageContainer centerer">
-        <p id="logo">
-          Sara<span id="dot">.</span>cb
-        </p>
-        <button className="btnGreen" onClick={handleToggleTheme}>
-          click me
-        </button>
-      </div>
+    <div className={`App ${darkmode ? "theme-dark" : "theme-light"}`}>
+      <BrowserRouter>
+        <MyNav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/curriculum" element={<Curriculum />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

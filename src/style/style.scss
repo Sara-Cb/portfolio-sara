@@ -9,6 +9,8 @@
 @import "./partials/mixins";
 @import "./partials/scrollbar";
 
+@import "./partials/components/navbar";
+
 html,
 body,
 #root,
@@ -52,7 +54,6 @@ body,
 
 #logo #dot {
   color: var(--secondary);
-  animation: dot-logo-spin infinite 20s linear;
 }
 
 h1 {
@@ -121,13 +122,4 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-@keyframes dot-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
