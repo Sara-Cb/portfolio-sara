@@ -10,38 +10,55 @@
   z-index: 1000;
   background-color: var(--primary);
   color: var(--accent);
-  .container-fluid {
+  .container-fluid .row {
     @include fullDimensions;
-    max-width: 1460px;
-    .row {
-      @include fullDimensions;
-      margin: 0;
-      .col:last-child {
-        margin-left: auto;
-      }
-    }
+    margin: 0;
   }
-  #my-nav {
-    background-color: var(--primary) !important;
-    width: min-content !important;
+  #dropped-nav {
     position: absolute;
+    top: 5.1rem;
+    left: 0;
     right: 0;
-    top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
-    align-items: end;
-    text-align: end;
-    width: fit-content;
-    margin: 10px 15px !important;
+    align-items: center;
+    text-align: center;
+    width: max-content;
+    z-index: 5;
     a {
-      margin-right: 5px;
+      margin: 0 5px;
+    }
+    .nav-link {
+      color: var(--accent) !important;
+    }
+
+    .nav-link.active {
+      font-weight: normal;
+      color: var(--secondary) !important;
+    }
+
+    .nav-link:hover {
+      color: var(--secondary) !important;
     }
   }
   .bi {
     color: var(--accent);
-    font-size: 30px !important;
-    margin-left: 10px;
+    font-size: 20px !important;
+    margin: 0 10px;
   }
+  * {
+    transition: 0.3s;
+  }
+}
+
+.theme-light #dropped-nav {
+  background-color: darken($color: #f0fffd, $amount: 4) !important;
+}
+
+.theme-dark #dropped-nav {
+  background-color: lighten($color: #1c2627, $amount: 3) !important;
 }
 
 .navToggle.navbar-toggler {
@@ -55,20 +72,21 @@
 .navUnderline {
   width: 75%;
   max-width: 1000px;
-  height: 0.7px;
+  height: 1px;
   position: absolute;
   top: 5rem;
   right: 0;
-  background-color: var(--accent);
+  background-color: var(--contrast);
 }
 
 .nav-link {
+  font-weight: 400;
   color: var(--accent) !important;
 }
 
 .nav-link.active {
   font-weight: normal;
-  color: var(--contrast) !important;
+  color: var(--secondary) !important;
 }
 
 .nav-link:hover {
@@ -79,7 +97,88 @@
   height: 3rem;
 }
 
-.bi {
-  font-size: 20px;
-  margin: 0 10px;
+.themeBtn {
+  padding: 0;
+  position: relative;
+  border: none;
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  color: var(--primary);
+  background: var(--accent);
+  &:focus,
+  &.focus,
+  &:focus.light,
+  &.focus.light {
+    outline: none;
+  }
+  &:before,
+  &:after {
+    font-family: "bootstrap-icons";
+    line-height: 1.5rem;
+    width: 3rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.3s;
+    color: var(--secondary);
+  }
+  &.light {
+    transition: background-color 0.3s;
+    .handle {
+      left: 1.6875rem;
+      transition: left 0.3s;
+    }
+  }
+  .handle {
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 1.125rem;
+    background: var(--primary);
+    transition: left 0.3s;
+    i {
+      color: var(--primary);
+      font-size: 10px !important;
+    }
+  }
+}
+
+.themeBtn.m {
+  &:before {
+    left: -3rem;
+  }
+  &:after {
+    right: -3rem;
+  }
+  &.light:before {
+    content: "\F496"; // empty moon
+    opacity: 0.5;
+  }
+  margin: 0 3rem;
+  &.dark:before {
+    content: "\F495"; // fill moon
+    opacity: 1;
+  }
+  &.light:after {
+    content: "\F1D1"; //fill sun
+    opacity: 0.5;
+  }
+  &.dark:after {
+    content: "\F1D2"; //empty sun
+    opacity: 1;
+  }
+  .handle {
+    background: var(--primary);
+  }
+}
+
+.themeBtn.xs > .handle {
+  background: none;
 }

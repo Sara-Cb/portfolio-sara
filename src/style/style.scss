@@ -10,6 +10,7 @@
 @import "./partials/scrollbar";
 
 @import "./partials/components/navbar";
+@import "./partials/components/heroLogo";
 
 html,
 body,
@@ -40,20 +41,17 @@ body,
   right: 0;
   left: 0;
   bottom: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-top: 1rem;
   padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#logo {
-  font-size: 64px;
-  color: var(--accent);
-  text-shadow: 0 0 20px var(--contrast);
-  font-family: "Rubik", Arial, Helvetica, sans-serif;
-}
-
-#logo #dot {
-  color: var(--secondary);
+.pageContainer > *,
+.myNav > * {
+  max-width: 1460px;
 }
 
 h1 {
@@ -80,29 +78,18 @@ a,
   @include centeringFlex;
 }
 
-.pageContainer > .row {
+.sectionContainer {
   width: 100%;
   justify-content: center;
   margin: 0;
-}
-
-.sectionContainer {
   padding: 0.5em 1em;
-  max-width: 1460px;
-  border-bottom: solid 1px var(--contrast);
+  border-bottom: solid 1px var(--accent);
 }
 
 .footerContainer {
   font-size: 14px;
   padding: 1rem;
   padding: 0.2em 0.5em;
-}
-
-.dropdown {
-  text-align: end;
-  .dropdown-toggle::after {
-    display: none;
-  }
 }
 
 img {

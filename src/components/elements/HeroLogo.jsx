@@ -1,8 +1,9 @@
 import { useEffect } from "react";
+import { Col, Row } from "react-bootstrap";
 
 function HeroLogo() {
   useEffect(() => {
-    const parts = document.querySelectorAll(".part");
+    const parts = document.querySelectorAll(".hero .logo.part");
 
     const fonts = [
       "Courier New, Courier, monospace",
@@ -44,11 +45,23 @@ function HeroLogo() {
   }, []);
 
   return (
-    <p id="logo">
-      <span className="part">Sara</span>
-      <span id="dot">.</span>
-      <span className="part">cb</span>
-    </p>
+    <Row className="sectionContainer hero text-center">
+      <Col>
+        <p className="logo text-sm-start">
+          <span className="part">Sara</span>
+          <span className="dot">.</span>
+          <span className="part">cb</span>
+        </p>
+      </Col>
+      <Col xs={12} sm={10} className="bio ms-auto">
+        <p className="text-sm-end">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
+          provident id expedita nostrum ipsam dicta quos iure facilis dolore.
+          Dicta necessitatibus sint possimus nobis blanditiis odio fuga labore,
+          iusto nostrum.
+        </p>
+      </Col>
+    </Row>
   );
 }
 

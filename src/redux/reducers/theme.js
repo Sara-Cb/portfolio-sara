@@ -1,7 +1,7 @@
 const initialState = {
-  theme: {
-    darkmode: false,
-  },
+  darkmode:
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
 };
 
 const themeReducer = (state = initialState, action) => {
