@@ -7,7 +7,7 @@
     color: var(--accent);
     text-shadow: 0 0 20px var(--contrast);
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    transition: font-size 1s;
+    transition: font-size 1s height 1s;
   }
 
   .logo .dot {
@@ -18,17 +18,20 @@
 .App.xs .sectionContainer.hero {
   .logo {
     font-size: 56px;
+    height: 7rem;
   }
 }
 
 .App.md .sectionContainer.hero {
   .logo {
     font-size: 86px;
+    height: 10rem;
   }
 }
 
 .App.lg .sectionContainer.hero {
   .logo {
     font-size: 102px;
+    height: 12rem;
   }
 }

@@ -11,6 +11,7 @@
 
 @import "./partials/components/navbar";
 @import "./partials/components/heroLogo";
+@import "./partials/components/skills";
 
 html,
 body,
@@ -23,7 +24,6 @@ body,
   margin: 0;
   font-size: 16px;
   line-height: 1.8;
-  font-weight: $lighter;
   background-color: var(--primary);
   color: var(--secondary);
   position: absolute;
@@ -33,6 +33,12 @@ body,
   bottom: 0;
   overflow-y: hidden;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.App.light-theme {
+  font-weight: $regular;
+}
+.App.dark-theme {
+  font-weight: $lighter;
 }
 
 .pageContainer {
@@ -54,9 +60,26 @@ body,
   max-width: 1460px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+}
+
 h1 {
-  color: var(--accent);
   font-weight: $bold;
+}
+
+h1,
+h2 {
+  color: var(--accent);
+}
+
+h2 {
+  text-transform: uppercase;
 }
 
 h2,
@@ -64,8 +87,14 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--secondary);
   font-weight: $medium;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary);
 }
 
 a,

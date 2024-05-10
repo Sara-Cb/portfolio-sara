@@ -7,6 +7,23 @@
   }
 }
 
+@mixin greenGradient($what, $direction) {
+  @if ($what == "border") {
+    border-color: linear-gradient(
+      $direction,
+      rgba(4, 181, 151, 0) 0%,
+      var(--contrast) 40%
+    );
+  }
+  @if ($what == "background") {
+    background-color: linear-gradient(
+      $direction,
+      rgba(4, 181, 151, 0) 0%,
+      var(--contrast) 40%
+    );
+  }
+}
+
 @mixin btn($variant) {
   padding: 3px 10px;
   margin: 5px;

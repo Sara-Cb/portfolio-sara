@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function HeroLogo() {
+  const size = useSelector((state) => state.screen.size);
+  const isMdScreen = size === "md";
+
   useEffect(() => {
-    const parts = document.querySelectorAll(".hero .logo.part");
+    const parts = document.querySelectorAll(".hero .logo .part");
 
     const fonts = [
       "Courier New, Courier, monospace",
@@ -39,27 +43,53 @@ function HeroLogo() {
       parts.forEach((part) => {
         part.style.fontFamily = "Rubik, Arial, Helvetica, sans-serif";
       });
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <Row className="sectionContainer hero text-center">
-      <Col>
-        <p className="logo text-sm-start">
-          <span className="part">Sara</span>
-          <span className="dot">.</span>
-          <span className="part">cb</span>
-        </p>
-      </Col>
-      <Col xs={12} sm={10} className="bio ms-auto">
-        <p className="text-sm-end">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis
-          provident id expedita nostrum ipsam dicta quos iure facilis dolore.
-          Dicta necessitatibus sint possimus nobis blanditiis odio fuga labore,
-          iusto nostrum.
-        </p>
+    <Row className="sectionContainer hero">
+      <Col xs={12}>
+        <Row className="mb-4">
+          <Col>
+            <p className="logo text-center text-sm-start">
+              <span className="part">Sara</span>
+              <span className="dot">.</span>
+              <span className="part">cb</span>
+            </p>
+          </Col>
+          <Col
+            xs={12}
+            sm={10}
+            className={`bio ms-auto ${isMdScreen ? "pe-4" : ""}`}
+          >
+            <p className="text-sm-end">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Reiciendis provident id expedita nostrum ipsam dicta quos iure
+              facilis dolore. Dicta necessitatibus sint possimus nobis
+              blanditiis odio fuga labore, iusto nostrum.
+            </p>
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <Col xs={12} md={5} lg={4} className="mb-md-5">
+            <p className="text-start text-md-end">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Reiciendis provident id expedita nostrum ipsam dicta quos iure
+              facilis dolore. Dicta necessitatibus sint possimus nobis
+              blanditiis odio fuga labore, iusto nostrum.
+            </p>
+          </Col>
+          <Col xs={12} md={5} lg={4} className="mt-md-5">
+            <p className="text-end text-md-start">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Reiciendis provident id expedita nostrum ipsam dicta quos iure
+              facilis dolore. Dicta necessitatibus sint possimus nobis
+              blanditiis odio fuga labore, iusto nostrum.
+            </p>
+          </Col>
+        </Row>
       </Col>
     </Row>
   );
